@@ -1,5 +1,7 @@
 let button = document.querySelector('button');
-button.addEventListener("click", function() {
+button.addEventListener("click", search);
+
+function search() {
   let keyword = document.querySelector('input').value;
   let url = 'https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&format=json&search='+keyword;
 
@@ -15,7 +17,7 @@ button.addEventListener("click", function() {
       alert("err...api error!");
     }
   }
-});
+}
 
 function print(api) {
   if (api[1].length > 0) {
