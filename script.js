@@ -4,6 +4,10 @@ let searchBox = document.querySelector('input');
 button.addEventListener("click", search);
 searchBox.addEventListener("keyup", listenKey);
 
+/*
+function to listen to key and call the search function
+if the key pressed is enter.
+*/
 function listenKey(e) {
   if(e.keyCode === 13) {
     search();
@@ -21,7 +25,7 @@ function search() {
     if (xmlHTTP.status === 200) {
       let recieved = xmlHTTP.response;
       let api = JSON.parse(recieved);
-        print(api);
+      print(api);
     } else {
       alert("err...api error!");
     }
@@ -31,6 +35,12 @@ function search() {
 function print(api) {
   if (api[1].length > 0) {
     for(let i = 0; i < 10; i++) {
+      if (api[1][i] == undefined) {
+        for (let j = i; j < 10; j++) {
+          document.getElementById(j).innerHTML = "";
+        }
+        break;
+      }
       let searchResult = '<li><a href='+api[3][i]+'>'+api[1][i]+'</a><br />'+api[2][i]+'</li>';
       document.getElementById(i).innerHTML = searchResult;
     }
