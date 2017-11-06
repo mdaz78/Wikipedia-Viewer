@@ -1,4 +1,4 @@
-## Random Quote Machine
+## Wikipedia Viewer
 An Implementation of the project from [FreeCodeCamp](https://www.freecodecamp.org/challenges/build-a-wikipedia-viewer)
 
 ### Screenshot
